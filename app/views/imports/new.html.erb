@@ -1,0 +1,8 @@
+<h1>Import data from CSV</h1>
+<p class="note">Your file must match the following format to be accepted: 
+  <a href="https://github.com/lschallenges/data-engineering/blob/master/example_input.tab">sample csv file</a></p>
+
+  <%= form_tag("/imports/create", method: 'post', multipart: true) do -%>
+  <p><%= file_field_tag :csv_file %></p>
+  <p><%= submit_tag 'import!' %></p>
+<% end -%>

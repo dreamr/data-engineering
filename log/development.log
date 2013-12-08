@@ -11325,3 +11325,18 @@ Served asset /imports.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-05 22:46:08 -0800
 Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (287.0ms)[0m  DROP DATABASE IF EXISTS "migration_app_test"
+  [1m[36m (1549.4ms)[0m  [1mCREATE DATABASE "migration_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (118.6ms)[0m  CREATE TABLE "items" ("id" serial primary key, "description" character varying(255), "price" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (120.4ms)[0m  [1mCREATE TABLE "merchants" ("id" serial primary key, "name" character varying(255), "address" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (64.1ms)[0m  CREATE TABLE "purchasers" ("id" serial primary key, "name" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (52.7ms)[0m  [1mCREATE TABLE "purchases" ("id" serial primary key, "purchaser_id" integer, "item_id" integer, "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (9.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (49.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (7.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131205220255')[0m
+  [1m[35m (21.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131205205310')
+  [1m[36m (10.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131205205331')[0m
+  [1m[35m (10.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131205205126')
